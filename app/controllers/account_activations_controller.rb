@@ -19,4 +19,10 @@ class AccountActivationsController < ApplicationController
       redirect_to root_url
     end
   end
+
+  private
+
+  def activation_params
+    params.require(:user).permit(:info, expertise_ids:[])
+  end
 end
