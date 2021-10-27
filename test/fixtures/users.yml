@@ -1,0 +1,11 @@
+cameron:
+  name: 'Cameron Tong'
+  email: 'cameron@cameron.com'
+  password_digest: <%= User.digest('foobar') %>
+  activated: true
+
+nick:
+  name: 'Nick Turco'
+  email: 'nick@nick.com'
+  password_digest: <%= User.digest('foobar') %>
+  activated: true

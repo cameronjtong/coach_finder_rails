@@ -1,0 +1,5 @@
+Hi <%= @user.name %>,
+
+Click the link below to activate and configure your profile.
+
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
