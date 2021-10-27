@@ -1,8 +1,12 @@
 class AccountActivationsController < ApplicationController
   def edit
     @user = User.find_by(email: params[:email])
-    if @user&.authenticated(:activation, params[:id])
+    if @user&.authenticated?(:activation, params[:id])
       @user.update_attribute(:activated, true)
+    else
+      flash[:danger] = 'Invalid link'
+      redirect_to root_url
+    end
   end
 
   def update

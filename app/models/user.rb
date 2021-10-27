@@ -31,16 +31,14 @@ class User < ApplicationRecord
     BCrypt::Password.new(digest).is_password?(token)
   end
 
+  def send_activation_email
+    UserMailer.account_activation(self).deliver_now
+  end
+
   private
 
   def create_activation_digest
     self.activation_token = User.new_token
     self.activation_digest = User.digest(activation_token)
-  end
-
-  def send_activation_email
-    UserMailer.account_activation(self).deliver_now
-    flash[:info] = 'Check your email to activate your account'
-    redirect_to root_url
   end
 end
