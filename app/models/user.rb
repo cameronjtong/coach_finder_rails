@@ -31,10 +31,6 @@ class User < ApplicationRecord
     BCrypt::Password.new(digest).is_password?(token)
   end
 
-  def send_activation_email
-    UserMailer.account_activation(self).deliver_now
-  end
-
   private
 
   def create_activation_digest

@@ -9,7 +9,6 @@ class UserMailerTest < ActionMailer::TestCase
     mail = UserMailer.account_activation(@user)
     assert_equal "Account activation", mail.subject
     assert_equal [@user.email], mail.to
-    assert_equal ["from@example.com"], mail.from
   end
 
   # test "password_reset" do
