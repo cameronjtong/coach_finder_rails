@@ -6,7 +6,7 @@ class AccountActivationsController < ApplicationController
   end
 
   def update
-      if @user.update_attribute(expertise_params)
+      if @user.update_attribute(:expertise_ids, params[:user][:expertise_ids])
         flash[:success] = 'Account verified and created!'
         @user.update_attribute(:activated, true)
         redirect_to root_url
