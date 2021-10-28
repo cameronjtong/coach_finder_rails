@@ -1,15 +1,18 @@
 class AccountActivationsController < ApplicationController
+  before_action :get_user, only: %i[edit update]
+  before_action :valid_user, only: %i[:edit update]
+
   def edit
-    @user = User.find_by(email: params[:email])
   end
 
   def update
-    @user = User.find_by(email: params[:email])
-    if @user&.authenticated?(:activation, params[:id])
-      if @user.update_attribute(:expertise_ids, activation_params)
-      flash[:success] = 'Account verified and created!'
-      @user.update_attribute(:activated, true)
-      redirect_to root_url
+      if @user.update_attribute(expertise_params)
+        flash[:success] = 'Account verified and created!'
+        @user.update_attribute(:activated, true)
+        redirect_to root_url
+      else
+        flash[:danger] = 'Activation failed, contact an admin!'
+        redirect_to root_url
     end
     else
       flash[:danger] = 'Error, please try again or contact an admin'
@@ -19,7 +22,17 @@ class AccountActivationsController < ApplicationController
 
   private
 
-  def activation_params
+  def expertise_params
     params.require(:user).permit(expertise_ids: [])
+  end
+
+  def get_user
+    @user = User.find_by(email: params[:email])
+  end
+
+  def valid_user
+    unless @user && @user.authenticated?(:activation, params[:id])
+      redirect_to root_url
+    end
   end
 end
