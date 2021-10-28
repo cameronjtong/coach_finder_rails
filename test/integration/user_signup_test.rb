@@ -47,9 +47,5 @@ class UserSignupTest < ActionDispatch::IntegrationTest
       }
     end
     assert_equal 1, ActionMailer::Base.deliveries.size
-    user = assigns(:user)
-    assert_not user.activated?
-    get edit_account_activation_path(user.activation_token, email: user.email)
-    assert_template 'account_activations/edit'
   end
 end
