@@ -14,10 +14,6 @@ class AccountActivationsController < ApplicationController
         flash[:danger] = 'Activation failed, contact an admin!'
         redirect_to root_url
     end
-    else
-      flash[:danger] = 'Error, please try again or contact an admin'
-      redirect_to root_url
-    end
   end
 
   private
