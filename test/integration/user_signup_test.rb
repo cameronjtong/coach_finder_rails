@@ -3,6 +3,8 @@ require "test_helper"
 class UserSignupTest < ActionDispatch::IntegrationTest
   def setup
     ActionMailer::Base.deliveries.clear
+    @user = users(:cameron)
+    @user.activation_token = User.new_token
   end
 
    test "valid signup" do
@@ -47,5 +49,10 @@ class UserSignupTest < ActionDispatch::IntegrationTest
       }
     end
     assert_equal 1, ActionMailer::Base.deliveries.size
+
+  end
+
+  test "signup links" do
+    get edit_account_activation_path(@user.activation_token, email: @user.email)
   end
 end
