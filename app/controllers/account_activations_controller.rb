@@ -11,8 +11,7 @@ class AccountActivationsController < ApplicationController
 
   def update
     @user = User.find_by(:email, params[:email])
-    if @user
-      update_attribute(:expertise_ids, params[:user][:expertise_ids:[]])
+    if @user&.update_attribute(:expertise_ids, params[:user][:expertise_ids:[]])
       flash[:success] = 'Account verified and created!'
       redirect_to root_url
     else
