@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+plan:
+  content: "I specialize in crossfit training and olympic lifing"
+  created_at: <%= 10.minutes.ago %>
+  user: cameron
+
+nutrition:
+  content: "I specialize in nutrition and prenatal lifting"
+  created_at: <%= 5.minutes.ago %>
+  user: nick

@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_and_belongs_to_many :expertises
+  has_many :microposts, dependent: :destroy
   attr_accessor :activation_token, :remember_token
   before_save {self.email = email.downcase}
   before_create :create_activation_digest
