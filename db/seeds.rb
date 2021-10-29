@@ -2,7 +2,8 @@ User.create!(name: 'Example User',
              email: 'example@example.com',
              password: 'foobar',
              password_confirmation: 'foobar',
-             activated: true)
+             activated: true,
+             admin: true)
 
 Expertise.create!(name: 'Level One')
 Expertise.create!(name: 'Level Two')
@@ -17,5 +18,6 @@ Expertise.create!(name: 'Skill Aquisition')
   User.create!(name: name,
                email: email,
                password: password,
-               password_confirmation: password)
+               password_confirmation: password,
+               activated: true)
 end

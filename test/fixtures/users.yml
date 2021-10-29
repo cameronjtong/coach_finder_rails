@@ -3,6 +3,7 @@ cameron:
   email: 'cameron@cameron.com'
   password_digest: <%= User.digest('foobar') %>
   activated: true
+  admin: true
 
 nick:
   name: 'Nick Turco'
