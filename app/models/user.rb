@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_and_belongs_to_many :expertises
-  attr_accessor :activation_token
+  attr_accessor :activation_token, :remember_token
   before_save {self.email = email.downcase}
   before_create :create_activation_digest
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -29,6 +29,15 @@ class User < ApplicationRecord
     return false if digest.nil?
 
     BCrypt::Password.new(digest).is_password?(token)
+  end
+
+  def remember
+    self.remember_token = User.new_token
+    self.remember_digest = User.digest(remember_token)
+  end
+
+  def forget
+    update_attribute(:remember_digest, nil)
   end
 
   private

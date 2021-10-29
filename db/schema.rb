@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_27_191959) do
+ActiveRecord::Schema.define(version: 2021_10_29_154920) do
 
   create_table "expertises", force: :cascade do |t|
     t.string "name"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2021_10_27_191959) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "activation_digest"
     t.boolean "activated", default: false
+    t.string "remember_digest"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
