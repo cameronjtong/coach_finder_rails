@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This coach finder app was implemented in order for coaches to
+have profiles that potential clients could go through to select a
+fitness coach. More advanced and responsive elements to come, such as advanced search.
+Hosted at https://cams-coach-finder.herokuapp.com/
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
