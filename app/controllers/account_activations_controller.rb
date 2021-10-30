@@ -9,7 +9,8 @@ class AccountActivationsController < ApplicationController
       if @user.update_attribute(:expertise_ids, params[:user][:expertise_ids])
         flash[:success] = 'Account verified and created!'
         @user.update_attribute(:activated, true)
-        redirect_to root_url
+        log_in(@user)
+        redirect_to @user
       else
         flash[:danger] = 'Activation failed, contact an admin!'
         redirect_to root_url

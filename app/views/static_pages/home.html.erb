@@ -4,8 +4,11 @@
 <h2>
   Find the <- company name here -> coach for you!
 </h2>
-
+<% if logged_in? %>
+<%= link_to 'Your Profile', current_user, class: 'btn btn-lg btn-primary' %>
+<% else %>
 <%= link_to 'Register now!', signup_path, class: 'btn btn-lg btn-primary' %>
+<% end %>
 </div>
 
 <%= link_to image_tag('rails.svg', alt: 'logo', width: '200'),
