@@ -10,9 +10,11 @@
   </aside>
     <% if @user.expertises.any? %>
     <section class='expertises'>
+      <ul class='expertises'>
     <% @user.expertises.each do |expertise| %>
-    <h3><%= expertise.name %></h3>
+    <li><%= expertise.name %></li>
     <% end %>
+    </ul>
   </section>
     <% end %>
   <% if logged_in? && current_user_is?(@user) %>
