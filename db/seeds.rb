@@ -9,7 +9,10 @@ Expertise.create!(name: 'Level One')
 Expertise.create!(name: 'Level Two')
 Expertise.create!(name: 'Weightlifting')
 Expertise.create!(name: 'Barbell Course')
-Expertise.create!(name: 'Skill Aquisition')
+Expertise.create!(name: 'Skill Acquisition')
+Expertise.create!(name: 'Crossfit L1')
+Expertise.create!(name: 'CSCS')
+Expertise.create!(name: 'CPT')
 
 99.times do |n|
   name = Faker::Name.name
