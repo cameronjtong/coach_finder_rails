@@ -1,9 +1,13 @@
 <li>
     <%= gravatar_for(user, size: 50) %>
     <%= link_to(user.name, user_path(user)) %>
-    <%= user.expertises %>
+    <% if user.expertises.any? %>
+    <% user.expertises.each do |expertise| %>
+    <%= expertise.name %>
+    <% end %>
+    <% end %>
     <% if current_user.admin? && !current_user_is?(user) %>
-    <%= link_to 'Delete user', user, method: :delete,
+    <%= link_to '(delete)', user, method: :delete,
                                      data: {confirm: 'You sure?'} %>
    <% end %>
 </li>

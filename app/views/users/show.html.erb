@@ -8,6 +8,13 @@
       </h1>
     </section>
   </aside>
+    <% if @user.expertises.any? %>
+    <section class='expertises'>
+    <% @user.expertises.each do |expertise| %>
+    <h3><%= expertise.name %></h3>
+    <% end %>
+  </section>
+    <% end %>
   <% if logged_in? && current_user_is?(@user) %>
   <div class='row'>
     <aside class='col-md-4'>
