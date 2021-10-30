@@ -6,17 +6,13 @@
         <%= gravatar_for(@user) %>
         <%= @user.name %>
       </h1>
+      <% if @user.expertises.any? %>
+    <% @user.expertises.each do |expertise| %>
+    <%= expertise.name %>
+    <% end %>
+    <% end %>
     </section>
   </aside>
-    <% if @user.expertises.any? %>
-    <section class='expertises'>
-      <ul class='expertises'>
-    <% @user.expertises.each do |expertise| %>
-    <li><%= expertise.name %></li>
-    <% end %>
-    </ul>
-  </section>
-    <% end %>
   <% if logged_in? && current_user_is?(@user) %>
   <div class='row'>
     <aside class='col-md-4'>
