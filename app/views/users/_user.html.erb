@@ -6,7 +6,7 @@
     <%= expertise.name %>
     <% end %>
     <% end %>
-    <% if current_user.admin? && !current_user_is?(user) %>
+    <% if current_user && current_user.admin? && !current_user_is?(user) %>
     <%= link_to '(delete)', user, method: :delete,
                                      data: {confirm: 'You sure?'} %>
    <% end %>
