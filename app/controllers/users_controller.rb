@@ -48,6 +48,15 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def search
+    if params[:search].blank?
+      redirect_to root_url
+    else
+      @parameter = params[:search].downcase
+      @results = User.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
+    end
+  end
+
   private
 
   def user_params

@@ -1,0 +1,7 @@
+<% provide(:title, 'Search Results') %>
+<h1>Search Results</h1>
+
+<% @results.each do |result| %>
+
+<%= link_to result.name, result %><br>
+<% end %>
