@@ -1,0 +1,11 @@
+<% provide(:title, 'Inbox') %>
+
+<h1>Inbox</h1>
+<% @conversations.each do |conversation| %>
+
+<div>
+  <%= link_to conversation.subject, conversation_path(conversation) %>
+  <%= link_to '(delete)', conversation_path(conversation), method: :delete %>
+</div>
+<% end %>
+<%= link_to 'New Conversation!', new_conversation_path, class: 'btn btn-primary' %>

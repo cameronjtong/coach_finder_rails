@@ -25,6 +25,7 @@ gem "bcrypt", "~> 3.1.7"
 gem "bootstrap-will_paginate"
 gem "faker", "2.11.0"
 gem "will_paginate"
+gem "mailboxer", github: 'mailboxer/mailboxer'
 
 # Use Active Storage variant
 gem "image_processing", "1.9.3"

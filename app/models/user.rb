@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  acts_as_messageable
   has_and_belongs_to_many :expertises
   has_many :microposts, dependent: :destroy
   attr_accessor :activation_token, :remember_token, :reset_token
@@ -57,6 +58,10 @@ class User < ApplicationRecord
 
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
+  end
+
+  def mailboxer_email(object)
+    self.email
   end
 
   private
