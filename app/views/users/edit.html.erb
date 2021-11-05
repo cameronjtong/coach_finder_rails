@@ -18,6 +18,14 @@
     <%= f.label :password_confirmation, "Confirmation" %>
     <%= f.password_field :password_confirmation %>
 
+    <%= f.label "Area of Expertise" %><br />
+  <%= f.collection_check_boxes :expertise_ids, Expertise.all, :id, :name do |b| %>
+    <div class="collection-check-box">
+      <%= b.check_box %>
+      <%= b.label %>
+    </div>
+  <% end %>
+
     <%= f.submit "Save changes", class: 'btn btn-primary' %>
     <% end %>
   </div>
