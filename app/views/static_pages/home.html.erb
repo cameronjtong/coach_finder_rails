@@ -1,15 +1,19 @@
 <% provide(:title, 'Home') %>
 <div class='center jumbotron'>
 <h1>Coach Matcher</h1>
+
+<% if logged_in? %>
+<h2>
+  Fill out your profile and attract more clients!
+</h2>
+<%= link_to 'Your Profile', current_user, class: 'btn btn-lg btn-primary' %>
+<% else %>
 <h2>
   <%= link_to 'Find the perfect coach for you!', users_path %>
 </h2>
 <h2>
   OR<br><br><b> if you're a coach looking for clients...</b>
   </h2>
-<% if logged_in? %>
-<%= link_to 'Your Profile', current_user, class: 'btn btn-lg btn-primary' %>
-<% else %>
 <%= link_to 'Register now!', signup_path, class: 'btn btn-lg btn-primary' %>
 <% end %>
 </div>
